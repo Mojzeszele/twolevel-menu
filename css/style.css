@@ -36,27 +36,44 @@ a:hover {
 }
 
 .container__list:hover > ul  {
-    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .list__list-item {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .list-item__extension {
     position: relative;
+
 }
 
 .list-item__extension:hover > ol {
-    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .extension__extension-list {
     position: absolute;
     left: 100%;
-    display: none;
+    visibility: hidden;
     margin-top: -1.3em;
+    opacity: 0;
 }
+
+@media all and (min-width: 1200px) {
+
+    .list__list-item {
+        transition: visibility 0s, opacity 0.5s linear;
+    }
+
+    .extension__extension-list {
+        transition: visibility 0s, opacity 0.5s linear;
+    }
+}
+
 
 
 
