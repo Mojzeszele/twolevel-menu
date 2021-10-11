@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5em;
+    min-height: 14vh;
     background-color: purple;
 }
 
@@ -16,7 +16,6 @@ a {
     display:block;
     background-color: gray;
     padding: 0.1em 1em;
-    margin: 1px;
     width: 5em;
     border-radius: 4px;
     text-align: center;
@@ -27,12 +26,13 @@ a:hover {
 }
 
 .nav__container {
-    width: 20vw;
+    width: 12em;
     display: flex;
     font-size: 18px;
     padding: 0 0.3em;
     justify-content: center;
     height: 2em;
+    z-index: 2;
 }
 
 .container__list:hover > ul  {
@@ -59,11 +59,48 @@ a:hover {
     position: absolute;
     left: 100%;
     visibility: hidden;
-    margin-top: -1.3em;
+    margin-top: -1.2em;
     opacity: 0;
 }
 
-@media all and (min-width: 1200px) {
+.nav__burger {
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+}
+
+.overlay {
+    visibility: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    position: absolute;
+    opacity: 30%;
+    z-index: 1;
+}
+
+.nav-active {
+    transform: translateX(0) !important;
+}
+
+.overlay-active {
+    visibility: visible;
+}
+
+.burger__line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+}
+
+.container__list {
+    max-height: 20px;
+}
+
+@media all and (max-width: 1200px) {
 
     .list__list-item {
         transition: visibility 0s, opacity 0.5s linear;
@@ -71,6 +108,24 @@ a:hover {
 
     .extension__extension-list {
         transition: visibility 0s, opacity 0.5s linear;
+    }
+
+    .nav__container {
+        position: absolute;
+        left: 0;
+        top: 14vh;
+        height: 86vh;
+        background-color: purple;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        transform: translateX(-100%);
+        transition: 500ms ease-in;
+    }
+
+    .nav__burger {
+        display: block;
     }
 }
 
